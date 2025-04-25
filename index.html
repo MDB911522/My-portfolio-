@@ -1,115 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Developer Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
-    .hero {
-      background: linear-gradient(135deg, #007bff, #00c6ff);
+
+    body, html {
+      width: 100vw;
+      height: 100vh;
+      overflow-x: hidden;
+      background: var(--bg, #0f051e);
       color: white;
-      padding: 80px 0;
+    }
+
+    header {
+      padding: 1rem 2rem;
+      background-color: rgba(15, 5, 30, 0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      background: linear-gradient(to left, #4200fc, #f901fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links a {
+      color: white;
+      margin-left: 2rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to left, #4200fc, #f901fc);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 1s ease-in;
+    }
+
+    #projects {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1rem;
+      width: 300px;
       text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: slideUp 1s ease forwards;
+      border: 1px solid #f901fc;
     }
-    .section-title {
-      font-weight: 600;
-      margin-bottom: 30px;
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
-    .card {
-      border-radius: 1rem;
+
+    .project-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      border: 3px solid #4200fc;
+    }
+
+    footer {
+      padding: 1rem;
+      background-color: rgba(15, 5, 30, 0.9);
+      text-align: center;
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo">Portfolio</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+    </div>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h1 class="display-4">MOHAMED BILAL </h1>
-      <p class="lead">Full Stack Developer | Data Analyst</p>
+  <section id="home">
+    <h1>Welcome to My Portfolio</h1>
+    <p>This is the home section where you can introduce yourself briefly.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I specialize in frontend development and data analysis. I build seamless user experiences and uncover insights from complex datasets.</p>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="project-card">
+      <img src="https://via.placeholder.com/300x200" alt="Project 1">
+      <h3>Project One</h3>
+      <p>A brief description of project one. Built with HTML, CSS, and JavaScript.</p>
+    </div>
+    <div class="project-card">
+      <img src="https://via.placeholder.com/300x200" alt="Project 2">
+      <h3>Project Two</h3>
+      <p>Another project that showcases data visualization and analytics skills.</p>
     </div>
   </section>
 
-  <!-- About -->
-  <section class="py-5">
-    <div class="container">
-      <h2 class="section-title text-center">About Me</h2>
-      <p class="text-center">
-        I’m a passionate developer with a knack for building clean and scalable applications.
-        With experience in mobile and web development, I enjoy working on end-to-end solutions that solve real-world problems.
-      </p>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <h2 class="section-title text-center">Skills</h2>
-      <div class="row text-center">
-        <div class="col-md-3">Android (Kotlin/Java)</div>
-        <div class="col-md-3">React / Angular</div>
-        <div class="col-md-3">Node.js / Express</div>
-        <div class="col-md-3">MongoDB / MySQL</div>
-      </div>
-      <div class="row text-center mt-3">
-        <div class="col-md-3">Firebase / Firestore</div>
-        <div class="col-md-3">Git & GitHub</div>
-        <div class="col-md-3">Machine Learning (Python)</div>
-        <div class="col-md-3">REST APIs / GraphQL</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section class="py-5">
-    <div class="container">
-      <h2 class="section-title text-center">Projects</h2>
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="card shadow-sm p-3">
-            <h5>Portfolio Website</h5>
-            <p>A personal website built using HTML, CSS, Bootstrap, and deployed with GitHub Pages.</p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card shadow-sm p-3">
-            <h5>Task Manager App</h5>
-            <p>React-based task manager with Node.js backend and MongoDB. Supports user login and task tracking.</p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card shadow-sm p-3">
-            <h5>Weather Forecast App</h5>
-            <p>Android app that fetches weather info using Retrofit and OpenWeather API. Built with MVVM.</p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card shadow-sm p-3">
-            <h5>ML Image Classifier</h5>
-            <p>Python-based project that uses TensorFlow to classify images into categories with a simple UI.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="py-5 bg-light">
-    <div class="container text-center">
-      <h2 class="section-title">Contact</h2>
-      <p>Email: john.doe@example.com</p>
-      <p>LinkedIn: linkedin.com/in/johndoe</p>
-      <p>GitHub: github.com/johndoe</p>
-    </div>
-  </section>
-
-  <footer class="text-center py-3 bg-dark text-white">
-    © 2025 John Doe. All rights reserved.
+  <footer>
+    <p>&copy; 2025 Mohamed Bilal. All Rights Reserved.</p>
   </footer>
-
 </body>
 </html>
